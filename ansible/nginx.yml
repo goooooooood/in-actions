@@ -1,0 +1,18 @@
+---
+
+- hosts: localhost
+  user: vagrant
+  sudo: yes
+  connection: local
+  tasks:
+   # tasks file for nginx
+    - name: install nginx
+      yum: 
+        name=nginx 
+        state=installed
+
+    - name: nginx start
+      service: 
+        name=nginx 
+        state=started 
+        enabled=yes
