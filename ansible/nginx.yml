@@ -1,9 +1,8 @@
 ---
 
-- hosts: localhost
-  user: vagrant
-  sudo: yes
-  connection: local
+- hosts: all
+  remote_user: vagrant
+  become: yes
   tasks:
    # tasks file for nginx
     - name: install nginx
@@ -14,5 +13,4 @@
     - name: nginx start
       service: 
         name=nginx 
-        state=started 
-        enabled=yes
+        state=started
